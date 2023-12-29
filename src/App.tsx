@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
-import TextField from '@mui/material/TextField';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CharacterPage from './CharacterPage'; // Import your new character page component
+import Search from './Search'; // Your existing main page component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <TextField id="outlined-basic" label="Search" variant="outlined" />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Search />} />
+        <Route path="/character/:id" element={<CharacterPage />} />
+      </Routes>
+    </Router>
   );
 }
 
